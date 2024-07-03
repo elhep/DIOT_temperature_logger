@@ -1,0 +1,12 @@
+/History/
+/Project_templates/History/
+/__Previews/
+/PDNAnalyzer_Output/
+*.PcbDocPreview
+*.SchDocPreview
+*.HarnessPreview
+*.AnnotationPreview
+*.LOG
+*.raw
+*.plt
+*.op.raw
