@@ -1,5 +1,5 @@
 # temperature-logger
-8 channel precision temperature logger with PT100/PT1000 sensors
+16 channel precision temperature logger with PT100/PT1000 sensors
 
 This piece of equipment was created to make the measurement of PCBs in enclosures possible. The device consists of the base module witch can act in there mode:
 - standalone mode using Ethernet communication and powered by PoE, 
