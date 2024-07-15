@@ -51,41 +51,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=Thermostat_8CH.OutJob
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document2]
-DocumentPath=pcb\Temp_recorder_SAMD21.~(1).PCBDOC
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=SJVECJOL
-
-[Document3]
-DocumentPath=pcb\DIOT_temperature_logger.PCBDOC
+DocumentPath=pcb\DIOT_temperature_logger.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -101,7 +67,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MTFSLNAE
 
-[Document4]
+[Document2]
 DocumentPath=FrontPanel\FrontPanel.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -118,7 +84,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FKNCOMEC
 
-[Document5]
+[Document3]
 DocumentPath=sch\Adapters.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -135,7 +101,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YSKGSQLO
 
-[Document6]
+[Document4]
 DocumentPath=sch\EEM_DIOT_connector.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -152,7 +118,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UUWGMCQE
 
-[Document7]
+[Document5]
 DocumentPath=sch\MCU_STM32F4.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -169,7 +135,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GOAMBQYF
 
-[Document8]
+[Document6]
 DocumentPath=sch\RMII_Ethernet.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -186,7 +152,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YGJQMTUX
 
-[Document9]
+[Document7]
 DocumentPath=sch\RTD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -197,13 +163,13 @@ AnnotateOrder=5
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
+ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LEPTJGKC
 
-[Document10]
+[Document8]
 DocumentPath=sch\Thermostat_16CH.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -220,7 +186,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=THIRGZQG
 
-[Document11]
+[Document9]
 DocumentPath=sch\USB.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -237,7 +203,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TMJUETGM
 
-[Document12]
+[Document10]
 DocumentPath=sch\Supply.schdoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -254,8 +220,42 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WYDWVJPF
 
-[Document13]
+[Document11]
 DocumentPath=sch\EEM_DIOT_connector.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document12]
+DocumentPath=sch\RMII_Ethernet.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document13]
+DocumentPath=sch\MCU_STM32F4.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -1254,12 +1254,12 @@ CompClassManualEnabled=0
 CompClassManualRoomEnabled=0
 NetClassAutoBusEnabled=1
 NetClassAutoCompEnabled=0
-NetClassAutoNamedHarnessEnabled=0
+NetClassAutoNamedHarnessEnabled=1
 NetClassManualEnabled=1
-NetClassSeparateForBusSections=0
+NetClassSeparateForBusSections=1
 
 [LibraryUpdateOptions]
-SelectedOnly=0
+SelectedOnly=1
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
@@ -1376,7 +1376,7 @@ Net89=NetName=NetIC9_12|NetColor=$00FF6E6E
 Net90=NetName=NetIC9_20|NetColor=$00FF6E6E
 Net91=NetName=NetIC9_58|NetColor=$00FF6E6E
 Net92=NetName=P12V0|NetColor=clYellow
-Net93=NetName=P12V0_IN|NetColor=$006E6EFF
+Net93=NetName=P12V0_IN|NetColor=$006EFF6E
 Net94=NetName=P3V3|NetColor=$0000BE00
 Net95=NetName=P5V0|NetColor=$00FFFF6E
 Net96=NetName=POE_IN1|NetColor=$00FF6E6E
