@@ -279,6 +279,10 @@ ParameterCount=0
 VariationCount=0
 ParamVariationCount=0
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Zotino\Move Component(s) Origin To Grid - DIOT_temperature_logger.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
@@ -539,12 +543,6 @@ OutputDocumentPath12=
 OutputVariantName12=
 OutputDefault12=0
 PageOptions12=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType13=PDF3D MBA
-OutputName13=PDF3D MBA
-OutputDocumentPath13=
-OutputVariantName13=
-OutputDefault13=0
-PageOptions13=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 
 [OutputGroup4]
 Name=Assembly Outputs
@@ -567,6 +565,11 @@ OutputName3=Test Point Report
 OutputDocumentPath3=
 OutputVariantName3=[No Variations]
 OutputDefault3=0
+OutputType4=Wire Bonding Table
+OutputName4=Wire Bonding Table Report
+OutputDocumentPath4=
+OutputVariantName4=[No Variations]
+OutputDefault4=0
 
 [OutputGroup5]
 Name=Fabrication Outputs
@@ -808,16 +811,6 @@ OutputName10=Web Review Data
 OutputDocumentPath10=
 OutputVariantName10=
 OutputDefault10=0
-OutputType11=MBAExportPARASOLID
-OutputName11=Export PARASOLID
-OutputDocumentPath11=
-OutputVariantName11=
-OutputDefault11=0
-OutputType12=MBAExportSTEP
-OutputName12=Export STEP
-OutputDocumentPath12=
-OutputVariantName12=
-OutputDefault12=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
@@ -1219,6 +1212,7 @@ Type150=2
 Type151=2
 Type152=1
 Type153=1
+Type154=0
 
 [ERC Connection Matrix]
 L1=NNNNNNNNNNNWNNNWW
@@ -1284,136 +1278,7 @@ UpdateToLatestRevision=1
 PartTypes=0
 
 [NetInfos]
-Net1=NetName=AT_EVENT|NetColor=$00FF6E6E
-Net2=NetName=AVDDT_PHY|NetColor=$006EFF6E
-Net3=NetName=BP_I2C.SCL|NetColor=$006E6EFF
-Net4=NetName=BP_I2C.SDA|NetColor=$006E6EFF
-Net5=NetName=BP_IO.LVDS_N0|NetColor=$00FF6E6E
-Net6=NetName=BP_IO.LVDS_P0|NetColor=$00FF6E6E
-Net7=NetName=CPU_RESETn|NetColor=$00FF6E6E
-Net8=NetName=FAN_PWM|NetColor=$00FF6E6E
-Net9=NetName=FORCE_N0|NetColor=$00FF6E6E
-Net10=NetName=FORCE_N08|NetColor=$006E6EFF
-Net11=NetName=FORCE_N09|NetColor=$00FF6EFF
-Net12=NetName=FORCE_N1|NetColor=$00FF6E6E
-Net13=NetName=FORCE_N10|NetColor=$006E6EFF
-Net14=NetName=FORCE_N11|NetColor=$00FF6E6E
-Net15=NetName=FORCE_N12|NetColor=$006E6EFF
-Net16=NetName=FORCE_N13|NetColor=$006E6EFF
-Net17=NetName=FORCE_N14|NetColor=$006E6EFF
-Net18=NetName=FORCE_N15|NetColor=$006E6EFF
-Net19=NetName=FORCE_N8|NetColor=$00FF6E6E
-Net20=NetName=FORCE_N9|NetColor=$006E6EFF
-Net21=NetName=FORCE_P0|NetColor=$00FF6E6E
-Net22=NetName=FORCE_P08|NetColor=$006E6EFF
-Net23=NetName=FORCE_P09|NetColor=$006E6EFF
-Net24=NetName=FORCE_P1|NetColor=$00FF6E6E
-Net25=NetName=FORCE_P10|NetColor=$006E6EFF
-Net26=NetName=FORCE_P11|NetColor=$006E6EFF
-Net27=NetName=FORCE_P12|NetColor=$006E6EFF
-Net28=NetName=FORCE_P13|NetColor=$006E6EFF
-Net29=NetName=FORCE_P14|NetColor=$006E6EFF
-Net30=NetName=FORCE_P15|NetColor=$006E6EFF
-Net31=NetName=FORCE_P8|NetColor=$00FF6E6E
-Net32=NetName=FORCE_P9|NetColor=$006E6EFF
-Net33=NetName=GND|NetColor=$006E6EFF
-Net34=NetName=I_meas_P12V0|NetColor=$00FF6E6E
-Net35=NetName=I2C_SCL|NetColor=$00FF6EFF
-Net36=NetName=I2C_SCL.CPCIS|NetColor=$00FFFF6E
-Net37=NetName=I2C_SDA|NetColor=$00FF6EFF
-Net38=NetName=I2C_SDA.CPCIS|NetColor=$00FFFF6E
-Net39=NetName=LVDS0_N|NetColor=$00FFFF6E
-Net40=NetName=LVDS0_P|NetColor=$00FFFF6E
-Net41=NetName=NetC156_1|NetColor=$006E6EFF
-Net42=NetName=NetC156_1_1|NetColor=$00FF6E6E
-Net43=NetName=NetC156_1_2|NetColor=$00FF6E6E
-Net44=NetName=NetC156_10_1|NetColor=$006E6EFF
-Net45=NetName=NetC156_10_2|NetColor=$00FF6E6E
-Net46=NetName=NetC156_11_1|NetColor=$006E6EFF
-Net47=NetName=NetC156_11_2|NetColor=$006E6EFF
-Net48=NetName=NetC156_12_1|NetColor=$006E6EFF
-Net49=NetName=NetC156_12_2|NetColor=$00FF6E6E
-Net50=NetName=NetC156_13_1|NetColor=$006E6EFF
-Net51=NetName=NetC156_13_2|NetColor=$006E6EFF
-Net52=NetName=NetC156_14_1|NetColor=$006E6EFF
-Net53=NetName=NetC156_14_2|NetColor=$006E6EFF
-Net54=NetName=NetC156_15_1|NetColor=$006E6EFF
-Net55=NetName=NetC156_15_2|NetColor=$006E6EFF
-Net56=NetName=NetC156_16_1|NetColor=$006E6EFF
-Net57=NetName=NetC156_16_2|NetColor=$00FF6E6E
-Net58=NetName=NetC156_2|NetColor=$00FF6E6E
-Net59=NetName=NetC156_2_1|NetColor=$00FF6E6E
-Net60=NetName=NetC156_2_2|NetColor=$00FF6E6E
-Net61=NetName=NetC156_9_1|NetColor=$00FF6E6E
-Net62=NetName=NetC156_9_2|NetColor=$006E6EFF
-Net63=NetName=NetC89_1|NetColor=$00FF6E6E
-Net64=NetName=NetD5_1|NetColor=$00FF6E6E
-Net65=NetName=NetD6_2|NetColor=$00FF6E6E
-Net66=NetName=NetD7_1|NetColor=$00FF6E6E
-Net67=NetName=NetIC84_1_5|NetColor=$00FF6E6E
-Net68=NetName=NetIC84_1_9|NetColor=$00FF6E6E
-Net69=NetName=NetIC84_10_5|NetColor=$00FF6E6E
-Net70=NetName=NetIC84_10_9|NetColor=$00FF6EFF
-Net71=NetName=NetIC84_11_5|NetColor=$00FF6E6E
-Net72=NetName=NetIC84_11_9|NetColor=$006E6EFF
-Net73=NetName=NetIC84_12_5|NetColor=$006E6EFF
-Net74=NetName=NetIC84_12_9|NetColor=$00FF6E6E
-Net75=NetName=NetIC84_13_5|NetColor=$00FF6E6E
-Net76=NetName=NetIC84_13_9|NetColor=$006E6EFF
-Net77=NetName=NetIC84_14_5|NetColor=$00FF6E6E
-Net78=NetName=NetIC84_14_9|NetColor=$006E6EFF
-Net79=NetName=NetIC84_15_5|NetColor=$006E6EFF
-Net80=NetName=NetIC84_15_9|NetColor=$006E6EFF
-Net81=NetName=NetIC84_16_5|NetColor=$00FF6E6E
-Net82=NetName=NetIC84_16_9|NetColor=$006E6EFF
-Net83=NetName=NetIC84_2_5|NetColor=$00FF6E6E
-Net84=NetName=NetIC84_2_9|NetColor=$00FF6E6E
-Net85=NetName=NetIC84_5|NetColor=$00FF6E6E
-Net86=NetName=NetIC84_9|NetColor=$00FF6EFF
-Net87=NetName=NetIC84_9_5|NetColor=$00FF6E6E
-Net88=NetName=NetIC84_9_9|NetColor=$006E6EFF
-Net89=NetName=NetIC9_12|NetColor=$00FF6E6E
-Net90=NetName=NetIC9_20|NetColor=$00FF6E6E
-Net91=NetName=NetIC9_58|NetColor=$00FF6E6E
-Net92=NetName=P12V0|NetColor=clYellow
-Net93=NetName=P12V0_IN|NetColor=$006EFF6E
-Net94=NetName=P3V3|NetColor=$0000BE00
-Net95=NetName=P5V0|NetColor=$00FFFF6E
-Net96=NetName=POE_IN1|NetColor=$00FF6E6E
-Net97=NetName=POE_IN2|NetColor=$00FF6E6E
-Net98=NetName=POE_IN3|NetColor=$00FF6E6E
-Net99=NetName=POE_IN4|NetColor=$00FF6E6E
-Net100=NetName=POE_PWR_SRC|NetColor=$00FF6E6E
-Net101=NetName=POE_VC-|NetColor=$00FF6E6E
-Net102=NetName=POE_VC+|NetColor=$00FF6E6E
-Net103=NetName=RTDIN_N0|NetColor=$00FF6E6E
-Net104=NetName=RTDIN_N08|NetColor=$006E6EFF
-Net105=NetName=RTDIN_N09|NetColor=$00FF6E6E
-Net106=NetName=RTDIN_N1|NetColor=$00FF6E6E
-Net107=NetName=RTDIN_N10|NetColor=$006E6EFF
-Net108=NetName=RTDIN_N11|NetColor=$00FF6E6E
-Net109=NetName=RTDIN_N12|NetColor=$006E6EFF
-Net110=NetName=RTDIN_N13|NetColor=$006E6EFF
-Net111=NetName=RTDIN_N14|NetColor=$006E6EFF
-Net112=NetName=RTDIN_N15|NetColor=$00FF6E6E
-Net113=NetName=RTDIN_N8|NetColor=$00FF6E6E
-Net114=NetName=RTDIN_N9|NetColor=$006E6EFF
-Net115=NetName=RTDIN_P0|NetColor=$00FF6E6E
-Net116=NetName=RTDIN_P08|NetColor=$00FF6E6E
-Net117=NetName=RTDIN_P09|NetColor=$00FF6E6E
-Net118=NetName=RTDIN_P1|NetColor=$00FF6E6E
-Net119=NetName=RTDIN_P10|NetColor=$00FF6E6E
-Net120=NetName=RTDIN_P11|NetColor=$006E6EFF
-Net121=NetName=RTDIN_P12|NetColor=$00FF6E6E
-Net122=NetName=RTDIN_P13|NetColor=$00FF6E6E
-Net123=NetName=RTDIN_P14|NetColor=$006E6EFF
-Net124=NetName=RTDIN_P15|NetColor=$00FF6E6E
-Net125=NetName=RTDIN_P8|NetColor=$00FF6E6E
-Net126=NetName=RTDIN_P9|NetColor=$006E6EFF
-Net127=NetName=SERVMOD_3V3|NetColor=$00FF6E6E
-Net128=NetName=TACHO|NetColor=$00FF6E6E
-Net129=NetName=TIM2_CAPT_IN|NetColor=$00FF6E6E
-Net130=NetName=TIM8_OC2|NetColor=$00FF6E6E
+Net1=NetName=AVDDT_PHY|NetColor=$006E6EFF
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
