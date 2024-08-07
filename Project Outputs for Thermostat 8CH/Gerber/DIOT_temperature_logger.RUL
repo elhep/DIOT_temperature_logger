@@ -1,0 +1,13 @@
+DRC Rules Export File for PCB: C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\DIOT_temperature_logger.PcbDoc
+RuleKind=Clearance|RuleName=Clearance_SD-SD|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance_SDcard|Scope=Board|Minimum=20.00
+RuleKind=Width|RuleName=QSPI|Scope=Board|Minimum=11.23
+RuleKind=Width|RuleName=SDcard|Scope=Board|Minimum=11.23
+RuleKind=Width|RuleName=RMII|Scope=Board|Minimum=7.70
+RuleKind=Width|RuleName=Width_HPOW|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance_HV|Scope=Board|Minimum=19.69
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=3.94
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=4.00
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=0.59
+RuleKind=Clearance|RuleName=Clearance_DIFF|Scope=Board|Minimum=20.00

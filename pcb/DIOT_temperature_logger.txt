@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\DIOT_temperature_logger.PcbDoc
+Date         : 04.08.2024
+Time         : 15:08:51
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 81,44%
+    Connections, 1611
+    Connections routed, 1312
+    Connections remaining, 299
+count : 4

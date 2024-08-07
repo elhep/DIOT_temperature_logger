@@ -1,0 +1,817 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD23\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">05.08.2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">01:20:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:13</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc" class="file"><acronym title="C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc">C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">139</td></tr>
+</table>
+</td>
+</table><a name="ID5XDU5LCYCAADELOMBYAZUSTCUJ1VDEWVFGUNDZEREENIGSE10FIJ"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID05WMLUFC22MZLUNEPM3FTJRIJPOXOHH4X0JJOGDVVSEFBXTX223C">Clearance Constraint (Gap=50mil) (InNamedPolygon('balancing')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDROIUIR4BU4JEJNK4V4KYWQVGELJYQ3MJBU5IYVE5ODNTA5V525IN">Clearance Constraint (Gap=19.685mil) (InNetClass('HV')),(not InNetClass('HV'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKUTL11RCB40PMVTXYXDGCLX35FW5RMEI0U4WR1EGLT5PQ5QQJV2H">Clearance Constraint (Gap=20mil) (Disabled)((InDifferentialPairClass('All Differential Pairs')and IsTrack )),((InDifferentialPairClass('All Differential Pairs') and IsTrack  ))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJWACH4QR2BOHDIX4SAWZWMNYLPV4ZJ2YHGBBLQC4AYZGL0JX0INN">Clearance Constraint (Gap=4mil) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIS2UB0HWQ403MB2BPZW2YKDI2CAVYJZKFCZZWZCQANKJ0EBRX0QH">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">21</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0L5BHEBD0VHG3JKXQXVOMCZWDIILFKZ0IF5KJOVVRVTLXEX5DSH">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">21</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMIVN3WC0AEQNCTDY1Y20JSEUAKD03CWWGH5GLMJDAJXIIL0JU0GC">Width Constraint (Min=3.937mil) (Max=78.74mil) (Preferred=7.874mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXUHM3NX5EVLOCQ2U4O3BMOSS4GKZCLVOXKSIZNOSRVYNBL0L0DDG">Width Constraint (Min=7.702mil) (Max=118.11mil) (Preferred=91.901mil) (InNetClass('RMII'))</a></td>
+<td class="column2">42</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDLVAGM2X2XKNN4W40UM0L21LJBMORB22OCQ3CKVEBWFUTLTNHQC">Width Constraint (Min=10mil) (Max=157.48mil) (Preferred=19.685mil) (InNetClass('HPOW'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQWAUFJSPFDBJJCYDFEGOSR1DMEBNZFC4DSICFLLEDYI5X3JDOCRF">Routing Layers(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV5UNKFGSD1SXNH2W0LA1203HKHS3EE5Q4LKDIYOUNNZZJ3DIU2ED">Routing Via (MinHoleWidth=7.874mil) (MaxHoleWidth=39.37mil) (PreferredHoleWidth=7.874mil) (MinWidth=19.685mil) (MaxWidth=78.74mil) (PreferedWidth=19.685mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4KHAH411JDFEBJBXJK5WLANZ1FDPO2QN0KGGQEPT4ZD43SU3SETB">Routing Via (Templates Used To Check Via: v50h20m0mx0, v66h33m0mx0) (InNetClass('HPOW'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4YOR035OBCCGI3NMVSZ2IFIWGJVAFK2O2FG4W4KPAFUV4EOAEESJ">Differential Pairs Uncoupled Length using the Gap Constraints (Min=5mil) (Max=6mil) (Prefered=6mil)  and Width Constraints (Min=5mil) (Max=6.693mil) (Prefered=6mil) (All)</a></td>
+<td class="column2">31</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNS0KDVGKQHVNID1YYCBRNUOZSLSHB3NDKHZPE1EQ1ICT1LPPQPCK">Power Plane Connect Rule(Relief Connect )(Expansion=10mil) (Conductor Width=10mil) (Air Gap=6mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZALCITXZQ2S1FA3ZW5HAZIETVIW0QQIXXOIF2CPVFWNR3JBGUXMM">Acute Angle Constraint (Minimum=60.000) (All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBO5D5L53WIDGB3WEIWQEO53PI4ZFYMPGFJKUEOC5HUAOWAQ3MGB">Hole Size Constraint (Min=1mil) (Max=150mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2SSIPEDMOZTUBGD5REVVMUS0WF4EMNVK333VJVOXBONXBJ1QW3RG">Hole To Hole Clearance (Gap=1mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFLGGLITBLJODONY3ORCHZDCNGF0ODZRJMG5FG1H5MKUUO3LRMHAB">Minimum Solder Mask Sliver (Gap=0mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDD1HIT15T3IA5H44CVFWRAQXAMMJYUGDPP3SRPFH5XIRZ3WGO1QZK">Silk To Solder Mask (Clearance=0mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFZMGPC4JUCTHI1GT5ATBO1PMTK30ZQKJI1A1BHOUV4KX3JRALP4B">Silk to Silk (Clearance=0mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAK1ZOG44SVBOKIYEZV20MOGQSDKTRWMCR5FVUCCGRYZ3LHYR3IB">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMY4AYFUGIQFKDTVH1OZM50QEDLDCSGXJW2EQ4RKG1HZAU4BN3MSN">Vias Under SMD Constraint (Allowed=Allowed) (HasFootprint('TSSOP28-EP') or HasFootprint('QFN65P500X500X80-21N-S335') or HasFootprint('QFN24_0R5_4X4'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZYNACIVVP3LZOBCSLBLWA05LNEK3KKYEB0NTQAKAE3H0Z5FHLMFF">Vias Under SMD Constraint (Allowed=Not Allowed) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNYX22RFQNRUKEWR4WOV5QBHPHC5S5KORGZLPO0PF2XACYRDBM1QC">Component Clearance Constraint ( Horizontal Gap = 0mil, Vertical Gap = 0mil ) (All),(All) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYWKEJGVEAOT2NW0PTS45K2MGRKI3FWGLQLQTBXOGFRM2LLW1KZ3M">Height Constraint (Min=0mil) (Max=1574.803mil) (Prefered=1574.803mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">139</td>
+</tr>
+</table><br><a name="IDJWACH4QR2BOHDIX4SAWZWMNYLPV4ZJ2YHGBBLQC4AYZGL0JX0INN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=4mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6068.241mil|Location2.X=6073.491mil|Location1.Y=6096.784mil|Location2.Y=6102.034mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6068.241mil|Location2.X=6073.491mil|Location1.Y=6096.784mil|Location2.Y=6102.034mil|Absolute=True">Clearance Constraint: (1.969mil &lt; 4mil) Between Area Fill (59.055mil,0mil) (8721.998mil,98.425mil) on KeepOutLayer And Via (2129.921mil,112.205mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7229.658mil|Location2.X=7234.908mil|Location1.Y=6096.784mil|Location2.Y=6102.034mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7229.658mil|Location2.X=7234.908mil|Location1.Y=6096.784mil|Location2.Y=6102.034mil|Absolute=True">Clearance Constraint: (1.969mil &lt; 4mil) Between Area Fill (59.055mil,0mil) (8721.998mil,98.425mil) on KeepOutLayer And Via (3291.339mil,112.205mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11532.627mil|Location2.X=11536.294mil|Location1.Y=8631.029mil|Location2.Y=8634.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11532.627mil|Location2.X=11536.294mil|Location1.Y=8631.029mil|Location2.Y=8634.696mil|Absolute=True">Clearance Constraint: (Collision &lt; 4mil) Between Area Fill (7565.412mil,2571.862mil) (7621.412mil,2632.862mil) on KeepOutLayer And Track (7493.11mil,2733.268mil)(7636.811mil,2589.567mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11552.312mil|Location2.X=11555.979mil|Location1.Y=8631.029mil|Location2.Y=8634.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11552.312mil|Location2.X=11555.979mil|Location1.Y=8631.029mil|Location2.Y=8634.696mil|Absolute=True">Clearance Constraint: (Collision &lt; 4mil) Between Area Fill (7565.412mil,2571.862mil) (7621.412mil,2632.862mil) on KeepOutLayer And Track (7500mil,2746.063mil)(7655.512mil,2590.551mil) on TOP </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDIS2UB0HWQ403MB2BPZW2YKDI2CAVYJZKFCZZWZCQANKJ0EBRX0QH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7342.52mil,2477.362mil) on MultiLayer And Polygon Region (321 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7342.52mil,2477.362mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7342.52mil,2602.362mil) on MultiLayer And Polygon Region (321 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7342.52mil,2602.362mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7544.882mil,2477.362mil) on MultiLayer And Polygon Region (321 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7544.882mil,2477.362mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7544.882mil,2602.362mil) on MultiLayer And Polygon Region (321 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-MH(7544.882mil,2602.362mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-PH(7404.882mil,2402.362mil) on MultiLayer And Polygon Region (321 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-PH(7404.882mil,2402.362mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-PH(7444.882mil,2602.362mil) on MultiLayer And Polygon Region (321 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-PH(7444.882mil,2602.362mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-PH(7484.882mil,2402.362mil) on MultiLayer And Polygon Region (321 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J102-PH(7484.882mil,2402.362mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J103-MH1(283.465mil,3492.717mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J103-MH2(283.465mil,3042.717mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J104-71(122.835mil,474.409mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J104-72(122.835mil,2124.016mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J108-5(8458.302mil,3353.728mil) on MultiLayer And Polygon Region (15 hole(s)) TOP Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J108-5(8458.302mil,3353.728mil) on MultiLayer And Polygon Region (638 hole(s)) MID2 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=125795.18mil|Location2.X=-125795.18mil|Location1.Y=125795.18mil|Location2.Y=-125795.18mil|Absolute=True">Short-Circuit Constraint: Between Pad J108-5(8458.302mil,3353.728mil) on MultiLayer And Polygon Region (92 hole(s)) MID1 Location : [X = 0mil][Y = 0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID0L5BHEBD0VHG3JKXQXVOMCZWDIILFKZ0IF5KJOVVRVTLXEX5DSH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.803mil|Location2.X=4517.323mil|Location1.Y=9609.646mil|Location2.Y=9736.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.803mil|Location2.X=4517.323mil|Location1.Y=9609.646mil|Location2.Y=9736.811mil|Absolute=True">Un-Routed Net Constraint: Net NetC40_1 Between Pad C50-1(555.118mil,3637.795mil) on TOP And Pad C40-1(555.118mil,3708.661mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.803mil|Location2.X=4518.307mil|Location1.Y=9680.512mil|Location2.Y=9791.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.803mil|Location2.X=4518.307mil|Location1.Y=9680.512mil|Location2.Y=9791.929mil|Absolute=True">Un-Routed Net Constraint: Net NetC40_1 Between Pad C40-1(555.118mil,3708.661mil) on TOP And Pad R87-2(559.055mil,3771.653mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4545.669mil|Location2.X=4588.189mil|Location1.Y=9609.646mil|Location2.Y=9736.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4545.669mil|Location2.X=4588.189mil|Location1.Y=9609.646mil|Location2.Y=9736.811mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C50-2(625.984mil,3637.795mil) on TOP And Pad C40-2(625.984mil,3708.661mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4544.685mil|Location2.X=4588.189mil|Location1.Y=9680.512mil|Location2.Y=9791.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4544.685mil|Location2.X=4588.189mil|Location1.Y=9680.512mil|Location2.Y=9791.929mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R87-1(622.047mil,3771.653mil) on TOP And Pad C40-2(625.984mil,3708.661mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4296.654mil|Location2.X=4517.323mil|Location1.Y=9528.74mil|Location2.Y=9665.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4296.654mil|Location2.X=4517.323mil|Location1.Y=9528.74mil|Location2.Y=9665.945mil|Absolute=True">Un-Routed Net Constraint: Net NetC40_1 Between Pad J103-S1(403.543mil,3576.575mil) on MultiLayer And Pad C50-1(555.118mil,3637.795mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4352.165mil|Location2.X=4588.189mil|Location1.Y=9609.646mil|Location2.Y=9671.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4352.165mil|Location2.X=4588.189mil|Location1.Y=9609.646mil|Location2.Y=9671.85mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (421.653mil,3661.417mil) from TOP to BOT And Pad C50-2(625.984mil,3637.795mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4289.764mil|Location2.X=4333.268mil|Location1.Y=6188.386mil|Location2.Y=6307.677mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4289.764mil|Location2.X=4333.268mil|Location1.Y=6188.386mil|Location2.Y=6307.677mil|Absolute=True">Un-Routed Net Constraint: Net NetC59_1 Between Pad C59-1(370.079mil,216.535mil) on TOP And Pad R110-2(374.016mil,287.402mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4359.646mil|Location2.X=4403.15mil|Location1.Y=6188.386mil|Location2.Y=6307.677mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4359.646mil|Location2.X=4403.15mil|Location1.Y=6188.386mil|Location2.Y=6307.677mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R110-1(437.008mil,287.402mil) on TOP And Pad C59-2(440.945mil,216.535mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4631.299mil|Location2.X=4775.197mil|Location1.Y=8664.764mil|Location2.Y=8716.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4631.299mil|Location2.X=4775.197mil|Location1.Y=8664.764mil|Location2.Y=8716.142mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (700.787mil,2705.709mil) from TOP to BOT And Pad C62-1(814.961mil,2685.039mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4799.606mil|Location2.X=4838.189mil|Location1.Y=8601.772mil|Location2.Y=8705.315mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4799.606mil|Location2.X=4838.189mil|Location1.Y=8601.772mil|Location2.Y=8705.315mil|Absolute=True">Un-Routed Net Constraint: Net USB_ID Between Pad L6-1(877.953mil,2622.047mil) on TOP [Unplated] And Pad C62-2(877.953mil,2685.039mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4718.898mil|Location2.X=5133.465mil|Location1.Y=8585.039mil|Location2.Y=9023.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4718.898mil|Location2.X=5133.465mil|Location1.Y=8585.039mil|Location2.Y=9023.228mil|Absolute=True">Un-Routed Net Constraint: Net USB_ID Between Pad C62-2(877.953mil,2685.039mil) on TOP And Track (1092.52mil,2923.228mil)(3622.687mil,2923.228mil) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.748mil|Location2.X=4838.189mil|Location1.Y=8600.787mil|Location2.Y=8642.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.748mil|Location2.X=4838.189mil|Location1.Y=8600.787mil|Location2.Y=8642.323mil|Absolute=True">Un-Routed Net Constraint: Net USB_ID Between Pad D16-1(608.268mil,2620.079mil) on TOP [Unplated] And Pad L6-1(877.953mil,2622.047mil) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9314.37mil|Location2.X=10079.724mil|Location1.Y=8154.921mil|Location2.Y=8925.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9314.37mil|Location2.X=10079.724mil|Location1.Y=8154.921mil|Location2.Y=8925.197mil|Absolute=True">Un-Routed Net Constraint: Net U_meas_P12V0 Between Pad R45-1(5393.7mil,2173.228mil) on TOP And Pad IC10-28(6131.89mil,2898.622mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9184.449mil|Location2.X=10375.984mil|Location1.Y=7059.449mil|Location2.Y=7746.654mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9184.449mil|Location2.X=10375.984mil|Location1.Y=7059.449mil|Location2.Y=7746.654mil|Absolute=True">Un-Routed Net Constraint: Net P3V0REF Between Via (5255.905mil,1734.252mil) from TOP to BOT And Pad IC21-6(6422.638mil,1090.551mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4359.646mil|Location2.X=4528.15mil|Location1.Y=6267.126mil|Location2.Y=6671.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4359.646mil|Location2.X=4528.15mil|Location1.Y=6267.126mil|Location2.Y=6671.85mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R110-1(437.008mil,287.402mil) on TOP And Via (576.772mil,661.417mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9093.898mil|Location2.X=9484.846mil|Location1.Y=7115.554mil|Location2.Y=7746.654mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9093.898mil|Location2.X=9484.846mil|Location1.Y=7115.554mil|Location2.Y=7746.654mil|Absolute=True">Un-Routed Net Constraint: Net P3V9 Between Via (5165.354mil,1734.252mil) from TOP to BOT And Pad R129-2(5523.625mil,1133.861mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9086.024mil|Location2.X=9465.157mil|Location1.Y=7757.283mil|Location2.Y=8289.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9086.024mil|Location2.X=9465.157mil|Location1.Y=7757.283mil|Location2.Y=8289.961mil|Absolute=True">Un-Routed Net Constraint: Net P3V9 Between Pad R135-1(5165.354mil,1775.591mil) on TOP And Via (5511.811mil,2277.559mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9176.575mil|Location2.X=9837.205mil|Location1.Y=7757.283mil|Location2.Y=9035.04mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9176.575mil|Location2.X=9837.205mil|Location1.Y=7757.283mil|Location2.Y=9035.04mil|Absolute=True">Un-Routed Net Constraint: Net P3V0REF Between Pad R136-1(5255.905mil,1775.591mil) on TOP And Via (5885.827mil,3024.606mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9314.37mil|Location2.X=9480.906mil|Location1.Y=7721.85mil|Location2.Y=8254.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9314.37mil|Location2.X=9480.906mil|Location1.Y=7721.85mil|Location2.Y=8254.528mil|Absolute=True">Un-Routed Net Constraint: Net P12V0 Between Pad R45-2(5393.7mil,2236.221mil) on TOP And Via (5527.559mil,1734.252mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3901.999mil|Location2.X=10299.213mil|Location1.Y=6000mil|Location2.Y=9937.001mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3901.999mil|Location2.X=10299.213mil|Location1.Y=6000mil|Location2.Y=9937.001mil|Absolute=True">Un-Routed Net Constraint: Polygon  (NONET_L03_P059) on MID2 Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9365.551mil|Location2.X=10742.717mil|Location1.Y=6954.134mil|Location2.Y=7746.654mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9365.551mil|Location2.X=10742.717mil|Location1.Y=6954.134mil|Location2.Y=7746.654mil|Absolute=True">Un-Routed Net Constraint: Net P3V3_MP Between Via (5437.008mil,1734.252mil) from TOP to BOT And Via (6791.339mil,964.567mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDXUHM3NX5EVLOCQ2U4O3BMOSS4GKZCLVOXKSIZNOSRVYNBL0L0DDG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Width Constraint (Min=7.702mil) (Max=118.11mil) (Preferred=91.901mil) (InNetClass('RMII'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8790.331mil|Location2.X=8810.078mil|Location1.Y=9176.65mil|Location2.Y=9187.524mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8790.331mil|Location2.X=8810.078mil|Location1.Y=9176.65mil|Location2.Y=9187.524mil|Absolute=True">Width Constraint: Track (4848.425mil,3182.087mil)(4861.221mil,3182.087mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8802.142mil|Location2.X=8819.828mil|Location1.Y=9170.624mil|Location2.Y=9182.11mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8802.142mil|Location2.X=8819.828mil|Location1.Y=9170.624mil|Location2.Y=9182.11mil|Absolute=True">Width Constraint: Track (4861.221mil,3182.087mil)(4872.047mil,3171.26mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8805.787mil|Location2.X=8820.097mil|Location1.Y=9153.028mil|Location2.Y=9166.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8805.787mil|Location2.X=8820.097mil|Location1.Y=9153.028mil|Location2.Y=9166.645mil|Absolute=True">Width Constraint: Track (4872.047mil,3145.669mil)(4872.047mil,3171.26mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8808.539mil|Location2.X=8828.286mil|Location1.Y=9196.335mil|Location2.Y=9207.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8808.539mil|Location2.X=8828.286mil|Location1.Y=9196.335mil|Location2.Y=9207.209mil|Absolute=True">Width Constraint: Track (4873.032mil,3201.772mil)(4873.032mil,3201.772mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8817.89mil|Location2.X=8835.576mil|Location1.Y=9186.372mil|Location2.Y=9197.858mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8817.89mil|Location2.X=8835.576mil|Location1.Y=9186.372mil|Location2.Y=9197.858mil|Absolute=True">Width Constraint: Track (4873.032mil,3201.772mil)(4891.732mil,3183.071mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8825.472mil|Location2.X=8839.782mil|Location1.Y=9158.933mil|Location2.Y=9172.55mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8825.472mil|Location2.X=8839.782mil|Location1.Y=9158.933mil|Location2.Y=9172.55mil|Absolute=True">Width Constraint: Track (4891.732mil,3145.669mil)(4891.732mil,3183.071mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8842.496mil|Location2.X=8860.183mil|Location1.Y=9208.026mil|Location2.Y=9219.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8842.496mil|Location2.X=8860.183mil|Location1.Y=9208.026mil|Location2.Y=9219.512mil|Absolute=True">Width Constraint: Track (4902.559mil,3218.504mil)(4911.417mil,3209.646mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8845.157mil|Location2.X=8859.467mil|Location1.Y=9172.22mil|Location2.Y=9185.837mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8845.157mil|Location2.X=8859.467mil|Location1.Y=9172.22mil|Location2.Y=9185.837mil|Absolute=True">Width Constraint: Track (4911.417mil,3145.669mil)(4911.417mil,3209.646mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8854.462mil|Location2.X=8872.148mil|Location1.Y=9252.163mil|Location2.Y=9263.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8854.462mil|Location2.X=8872.148mil|Location1.Y=9252.163mil|Location2.Y=9263.648mil|Absolute=True">Width Constraint: Track (4917.323mil,3259.842mil)(4920.585mil,3256.581mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8854.324mil|Location2.X=8868.634mil|Location1.Y=9240.317mil|Location2.Y=9253.934mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8854.324mil|Location2.X=8868.634mil|Location1.Y=9240.317mil|Location2.Y=9253.934mil|Absolute=True">Width Constraint: Track (4920.585mil,3234.927mil)(4920.585mil,3256.581mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8861.351mil|Location2.X=8879.038mil|Location1.Y=9223.62mil|Location2.Y=9235.105mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8861.351mil|Location2.X=8879.038mil|Location1.Y=9223.62mil|Location2.Y=9235.105mil|Absolute=True">Width Constraint: Track (4920.585mil,3234.927mil)(4931.102mil,3224.41mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8865.844mil|Location2.X=8883.531mil|Location1.Y=9207.316mil|Location2.Y=9218.802mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8865.844mil|Location2.X=8883.531mil|Location1.Y=9207.316mil|Location2.Y=9218.802mil|Absolute=True">Width Constraint: Track (4929.57mil,3214.131mil)(4931.102mil,3212.599mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8864.842mil|Location2.X=8879.152mil|Location1.Y=9173.697mil|Location2.Y=9187.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8864.842mil|Location2.X=8879.152mil|Location1.Y=9173.697mil|Location2.Y=9187.314mil|Absolute=True">Width Constraint: Track (4931.102mil,3145.669mil)(4931.102mil,3212.599mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8864.842mil|Location2.X=8879.152mil|Location1.Y=9213.067mil|Location2.Y=9226.684mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8864.842mil|Location2.X=8879.152mil|Location1.Y=9213.067mil|Location2.Y=9226.684mil|Absolute=True">Width Constraint: Track (4931.102mil,3212.599mil)(4931.102mil,3224.41mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8904.212mil|Location2.X=8918.522mil|Location1.Y=9156.964mil|Location2.Y=9170.581mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8904.212mil|Location2.X=8918.522mil|Location1.Y=9156.964mil|Location2.Y=9170.581mil|Absolute=True">Width Constraint: Track (4970.472mil,3145.669mil)(4970.472mil,3179.133mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8912.378mil|Location2.X=8929.994mil|Location1.Y=9180.094mil|Location2.Y=9191.651mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8912.378mil|Location2.X=8929.994mil|Location1.Y=9180.094mil|Location2.Y=9191.651mil|Absolute=True">Width Constraint: Track (4970.472mil,3179.133mil)(4983.268mil,3191.929mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8932.555mil|Location2.X=8952.302mil|Location1.Y=9186.492mil|Location2.Y=9197.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8932.555mil|Location2.X=8952.302mil|Location1.Y=9186.492mil|Location2.Y=9197.366mil|Absolute=True">Width Constraint: Track (4983.268mil,3191.929mil)(5010.827mil,3191.929mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8944.366mil|Location2.X=8964.113mil|Location1.Y=9114.642mil|Location2.Y=9125.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8944.366mil|Location2.X=8964.113mil|Location1.Y=9114.642mil|Location2.Y=9125.516mil|Absolute=True">Width Constraint: Track (4996.063mil,3120.079mil)(5021.654mil,3120.079mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8978.323mil|Location2.X=8995.939mil|Location1.Y=9218.48mil|Location2.Y=9230.037mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8978.323mil|Location2.X=8995.939mil|Location1.Y=9218.48mil|Location2.Y=9230.037mil|Absolute=True">Width Constraint: Track (5010.827mil,3191.929mil)(5074.803mil,3255.905mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8966.02mil|Location2.X=8983.636mil|Location1.Y=9123.5mil|Location2.Y=9135.057mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8966.02mil|Location2.X=8983.636mil|Location1.Y=9123.5mil|Location2.Y=9135.057mil|Absolute=True">Width Constraint: Track (5021.654mil,3120.079mil)(5039.37mil,3137.795mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8961.299mil|Location2.X=8975.609mil|Location1.Y=9333.638mil|Location2.Y=9347.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8961.299mil|Location2.X=8975.609mil|Location1.Y=9333.638mil|Location2.Y=9347.255mil|Absolute=True">Width Constraint: Track (5027.559mil,3322.835mil)(5027.559mil,3355.315mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8974.878mil|Location2.X=8992.494mil|Location1.Y=9361.689mil|Location2.Y=9373.246mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8974.878mil|Location2.X=8992.494mil|Location1.Y=9361.689mil|Location2.Y=9373.246mil|Absolute=True">Width Constraint: Track (5027.559mil,3355.315mil)(5051.181mil,3378.937mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8973.11mil|Location2.X=8987.42mil|Location1.Y=9161.394mil|Location2.Y=9175.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8973.11mil|Location2.X=8987.42mil|Location1.Y=9161.394mil|Location2.Y=9175.011mil|Absolute=True">Width Constraint: Track (5039.37mil,3137.795mil)(5039.37mil,3195.866mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8999.976mil|Location2.X=9017.592mil|Location1.Y=9215.528mil|Location2.Y=9227.084mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8999.976mil|Location2.X=9017.592mil|Location1.Y=9215.528mil|Location2.Y=9227.084mil|Absolute=True">Width Constraint: Track (5039.37mil,3195.866mil)(5089.567mil,3246.063mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9105.291mil|Location2.X=9125.038mil|Location1.Y=9373.5mil|Location2.Y=9384.374mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9105.291mil|Location2.X=9125.038mil|Location1.Y=9373.5mil|Location2.Y=9384.374mil|Absolute=True">Width Constraint: Track (5051.181mil,3378.937mil)(5288.386mil,3378.937mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9008.543mil|Location2.X=9022.853mil|Location1.Y=9265.724mil|Location2.Y=9279.341mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9008.543mil|Location2.X=9022.853mil|Location1.Y=9265.724mil|Location2.Y=9279.341mil|Absolute=True">Width Constraint: Track (5074.803mil,3255.905mil)(5074.803mil,3286.417mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9008.543mil|Location2.X=9022.853mil|Location1.Y=9301.157mil|Location2.Y=9314.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9008.543mil|Location2.X=9022.853mil|Location1.Y=9301.157mil|Location2.Y=9314.774mil|Absolute=True">Width Constraint: Track (5074.803mil,3286.417mil)(5074.803mil,3326.772mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9023.307mil|Location2.X=9037.617mil|Location1.Y=9248.008mil|Location2.Y=9261.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9023.307mil|Location2.X=9037.617mil|Location1.Y=9248.008mil|Location2.Y=9261.625mil|Absolute=True">Width Constraint: Track (5089.567mil,3246.063mil)(5089.567mil,3260.827mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9030.488mil|Location2.X=9048.104mil|Location1.Y=9260.803mil|Location2.Y=9272.36mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9030.488mil|Location2.X=9048.104mil|Location1.Y=9260.803mil|Location2.Y=9272.36mil|Absolute=True">Width Constraint: Track (5089.567mil,3260.827mil)(5100.394mil,3271.653mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9048.697mil|Location2.X=9068.444mil|Location1.Y=9266.217mil|Location2.Y=9277.091mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9048.697mil|Location2.X=9068.444mil|Location1.Y=9266.217mil|Location2.Y=9277.091mil|Absolute=True">Width Constraint: Track (5100.394mil,3271.653mil)(5125.984mil,3271.653mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9059.724mil|Location2.X=9074.034mil|Location1.Y=9293.775mil|Location2.Y=9307.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9059.724mil|Location2.X=9074.034mil|Location1.Y=9293.775mil|Location2.Y=9307.392mil|Absolute=True">Width Constraint: Track (5125.984mil,3271.653mil)(5125.984mil,3326.772mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9078.717mil|Location2.X=9096.333mil|Location1.Y=9338.559mil|Location2.Y=9350.116mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9078.717mil|Location2.X=9096.333mil|Location1.Y=9338.559mil|Location2.Y=9350.116mil|Absolute=True">Width Constraint: Track (5125.984mil,3326.772mil)(5160.433mil,3361.22mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9145.646mil|Location2.X=9165.393mil|Location1.Y=9355.783mil|Location2.Y=9366.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9145.646mil|Location2.X=9165.393mil|Location1.Y=9355.783mil|Location2.Y=9366.657mil|Absolute=True">Width Constraint: Track (5160.433mil,3361.22mil)(5259.843mil,3361.22mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9412.378mil|Location2.X=9430.065mil|Location1.Y=9138.144mil|Location2.Y=9149.63mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9412.378mil|Location2.X=9430.065mil|Location1.Y=9138.144mil|Location2.Y=9149.63mil|Absolute=True">Width Constraint: Track (5259.843mil,3361.22mil)(5693.898mil,2927.165mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9436mil|Location2.X=9453.687mil|Location1.Y=9160.782mil|Location2.Y=9172.268mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9436mil|Location2.X=9453.687mil|Location1.Y=9160.782mil|Location2.Y=9172.268mil|Absolute=True">Width Constraint: Track (5288.386mil,3378.937mil)(5712.599mil,2954.724mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9735.705mil|Location2.X=9755.452mil|Location1.Y=8921.728mil|Location2.Y=8932.602mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9735.705mil|Location2.X=9755.452mil|Location1.Y=8921.728mil|Location2.Y=8932.602mil|Absolute=True">Width Constraint: Track (5693.898mil,2927.165mil)(5906.496mil,2927.165mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9780.98mil|Location2.X=9800.727mil|Location1.Y=8949.287mil|Location2.Y=8960.161mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9780.98mil|Location2.X=9800.727mil|Location1.Y=8949.287mil|Location2.Y=8960.161mil|Absolute=True">Width Constraint: Track (5712.599mil,2954.724mil)(5978.346mil,2954.724mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9856.276mil|Location2.X=9873.962mil|Location1.Y=8906.845mil|Location2.Y=8918.331mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9856.276mil|Location2.X=9873.962mil|Location1.Y=8906.845mil|Location2.Y=8918.331mil|Absolute=True">Width Constraint: Track (5906.496mil,2927.165mil)(5935.039mil,2898.622mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9890.232mil|Location2.X=9909.979mil|Location1.Y=8893.185mil|Location2.Y=8904.059mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9890.232mil|Location2.X=9909.979mil|Location1.Y=8893.185mil|Location2.Y=8904.059mil|Absolute=True">Width Constraint: Track (5935.039mil,2898.622mil)(5974.409mil,2898.622mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9921.728mil|Location2.X=9939.415mil|Location1.Y=8940.802mil|Location2.Y=8952.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9921.728mil|Location2.X=9939.415mil|Location1.Y=8940.802mil|Location2.Y=8952.287mil|Absolute=True">Width Constraint: Track (5978.346mil,2954.724mil)(5994.095mil,2938.976mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9927.835mil|Location2.X=9942.145mil|Location1.Y=8913.362mil|Location2.Y=8926.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9927.835mil|Location2.X=9942.145mil|Location1.Y=8913.362mil|Location2.Y=8926.979mil|Absolute=True">Width Constraint: Track (5994.095mil,2898.622mil)(5994.095mil,2938.976mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10085.315mil|Location2.X=10099.625mil|Location1.Y=8866.61mil|Location2.Y=8880.227mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10085.315mil|Location2.X=10099.625mil|Location1.Y=8866.61mil|Location2.Y=8880.227mil|Absolute=True">Width Constraint: Track (6151.575mil,2845.472mil)(6151.575mil,2898.622mil) on TOP Actual Width = 7.874mil, Target Width = 11.432mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID4YOR035OBCCGI3NMVSZ2IFIWGJVAFK2O2FG4W4KPAFUV4EOAEESJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Differential Pairs Uncoupled Length using the Gap Constraints (Min=5mil) (Max=6mil) (Prefered=6mil)  and Width Constraints (Min=5mil) (Max=6.693mil) (Prefered=6mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12107.233mil|Location2.X=12620.302mil|Location1.Y=6331.643mil|Location2.Y=8377.019mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12107.233mil|Location2.X=12620.302mil|Location1.Y=6331.643mil|Location2.Y=8377.019mil|Absolute=True">Differential Pairs Routing: Between Net BP_IO.LVDS0_P And Net BP_IO.LVDS0_N [Uncoupled Length = 561.519mil], [Maximum Uncoupled Length = 500mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.934mil|Location2.X=10528.94mil|Location1.Y=7896.194mil|Location2.Y=8890.298mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.934mil|Location2.X=10528.94mil|Location1.Y=7896.194mil|Location2.Y=8890.298mil|Absolute=True">Differential Pairs Routing: Between Net USB_P And Net USB_N [Uncoupled Length = 3116.649mil], [Maximum Uncoupled Length = 500mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6306.261mil|Location2.X=6316.629mil|Location1.Y=8884.327mil|Location2.Y=8891.264mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6306.261mil|Location2.X=6316.629mil|Location1.Y=8884.327mil|Location2.Y=8891.264mil|Absolute=True">Differential Pairs Routing: Track (1116.372mil,2887.795mil)(3621.197mil,2887.795mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6307.859mil|Location2.X=6318.227mil|Location1.Y=8871.634mil|Location2.Y=8878.571mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6307.859mil|Location2.X=6318.227mil|Location1.Y=8871.634mil|Location2.Y=8878.571mil|Absolute=True">Differential Pairs Routing: Track (1120.928mil,2875.102mil)(3619.836mil,2875.102mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7557.286mil|Location2.X=7564.25mil|Location1.Y=8871.634mil|Location2.Y=8879.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7557.286mil|Location2.X=7564.25mil|Location1.Y=8871.634mil|Location2.Y=8879.527mil|Absolute=True">Differential Pairs Routing: Track (3619.836mil,2875.102mil)(3619.836mil,2875.102mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7810.592mil|Location2.X=7819.982mil|Location1.Y=8618.354mil|Location2.Y=8625.291mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7810.592mil|Location2.X=7819.982mil|Location1.Y=8618.354mil|Location2.Y=8625.291mil|Absolute=True">Differential Pairs Routing: Track (3619.836mil,2875.102mil)(4126.395mil,2368.543mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7562.914mil|Location2.X=7572.304mil|Location1.Y=8880.085mil|Location2.Y=8887.022mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7562.914mil|Location2.X=7572.304mil|Location1.Y=8880.085mil|Location2.Y=8887.022mil|Absolute=True">Differential Pairs Routing: Track (3621.197mil,2887.795mil)(3629.679mil,2879.313mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7567.129mil|Location2.X=7574.092mil|Location1.Y=8875.777mil|Location2.Y=8883.671mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7567.129mil|Location2.X=7574.092mil|Location1.Y=8875.777mil|Location2.Y=8883.671mil|Absolute=True">Differential Pairs Routing: Track (3629.679mil,2879.179mil)(3629.679mil,2879.313mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7817.769mil|Location2.X=7827.158mil|Location1.Y=8625.097mil|Location2.Y=8632.034mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7817.769mil|Location2.X=7827.158mil|Location1.Y=8625.097mil|Location2.Y=8632.034mil|Absolute=True">Differential Pairs Routing: Track (3629.679mil,2879.179mil)(4130.905mil,2377.953mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8477.062mil|Location2.X=8487.431mil|Location1.Y=8365.075mil|Location2.Y=8372.012mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8477.062mil|Location2.X=8487.431mil|Location1.Y=8365.075mil|Location2.Y=8372.012mil|Absolute=True">Differential Pairs Routing: Track (4126.395mil,2368.543mil)(4952.776mil,2368.543mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8480.932mil|Location2.X=8491.3mil|Location1.Y=8374.484mil|Location2.Y=8381.421mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8480.932mil|Location2.X=8491.3mil|Location1.Y=8374.484mil|Location2.Y=8381.421mil|Absolute=True">Differential Pairs Routing: Track (4130.905mil,2377.953mil)(4956.006mil,2377.953mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9119.347mil|Location2.X=9128.737mil|Location1.Y=8135.98mil|Location2.Y=8142.917mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9119.347mil|Location2.X=9128.737mil|Location1.Y=8135.98mil|Location2.Y=8142.917mil|Absolute=True">Differential Pairs Routing: Track (4952.776mil,2368.543mil)(5410.965mil,1910.354mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9122.813mil|Location2.X=9132.203mil|Location1.Y=8145.154mil|Location2.Y=8152.091mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9122.813mil|Location2.X=9132.203mil|Location1.Y=8145.154mil|Location2.Y=8152.091mil|Absolute=True">Differential Pairs Routing: Track (4956.006mil,2377.953mil)(5414.667mil,1919.291mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9903.302mil|Location2.X=9913.67mil|Location1.Y=7906.886mil|Location2.Y=7913.823mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9903.302mil|Location2.X=9913.67mil|Location1.Y=7906.886mil|Location2.Y=7913.823mil|Absolute=True">Differential Pairs Routing: Track (5410.965mil,1910.354mil)(6520.685mil,1910.354mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9905.468mil|Location2.X=9915.836mil|Location1.Y=7915.823mil|Location2.Y=7922.76mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9905.468mil|Location2.X=9915.836mil|Location1.Y=7915.823mil|Location2.Y=7922.76mil|Absolute=True">Differential Pairs Routing: Track (5414.667mil,1919.291mil)(6521.316mil,1919.291mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4502.544mil|Location2.X=4511.87mil|Location1.Y=8644.276mil|Location2.Y=8651.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4502.544mil|Location2.X=4511.87mil|Location1.Y=8644.276mil|Location2.Y=8651.213mil|Absolute=True">Differential Pairs Routing: Track (564.961mil,2647.638mil)(565.174mil,2647.851mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.528mil|Location2.X=4512.918mil|Location1.Y=8674.574mil|Location2.Y=8681.511mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.528mil|Location2.X=4512.918mil|Location1.Y=8674.574mil|Location2.Y=8681.511mil|Absolute=True">Differential Pairs Routing: Track (564.961mil,2679.134mil)(567.143mil,2676.952mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4514.461mil|Location2.X=4524.83mil|Location1.Y=8644.382mil|Location2.Y=8651.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4514.461mil|Location2.X=4524.83mil|Location1.Y=8644.382mil|Location2.Y=8651.319mil|Absolute=True">Differential Pairs Routing: Track (565.174mil,2647.851mil)(588.796mil,2647.851mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4515.446mil|Location2.X=4525.814mil|Location1.Y=8673.484mil|Location2.Y=8680.421mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4515.446mil|Location2.X=4525.814mil|Location1.Y=8673.484mil|Location2.Y=8680.421mil|Absolute=True">Differential Pairs Routing: Track (567.143mil,2676.952mil)(588.796mil,2676.952mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4530.867mil|Location2.X=4540.193mil|Location1.Y=8648.977mil|Location2.Y=8655.914mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4530.867mil|Location2.X=4540.193mil|Location1.Y=8648.977mil|Location2.Y=8655.914mil|Absolute=True">Differential Pairs Routing: Track (588.796mil,2647.851mil)(597.985mil,2657.039mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4529.882mil|Location2.X=4539.272mil|Location1.Y=8669.874mil|Location2.Y=8676.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4529.882mil|Location2.X=4539.272mil|Location1.Y=8669.874mil|Location2.Y=8676.811mil|Absolute=True">Differential Pairs Routing: Track (588.796mil,2676.952mil)(596.016mil,2669.732mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4539.618mil|Location2.X=4549.987mil|Location1.Y=8666.264mil|Location2.Y=8673.201mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4539.618mil|Location2.X=4549.987mil|Location1.Y=8666.264mil|Location2.Y=8673.201mil|Absolute=True">Differential Pairs Routing: Track (596.016mil,2669.732mil)(608.268mil,2669.732mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.603mil|Location2.X=4550.971mil|Location1.Y=8653.571mil|Location2.Y=8660.508mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.603mil|Location2.X=4550.971mil|Location1.Y=8653.571mil|Location2.Y=8660.508mil|Absolute=True">Differential Pairs Routing: Track (597.985mil,2657.039mil)(608.268mil,2657.039mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4592.701mil|Location2.X=4603.069mil|Location1.Y=8653.571mil|Location2.Y=8660.508mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4592.701mil|Location2.X=4603.069mil|Location1.Y=8653.571mil|Location2.Y=8660.508mil|Absolute=True">Differential Pairs Routing: Track (608.268mil,2657.039mil)(702.181mil,2657.039mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4592.701mil|Location2.X=4603.069mil|Location1.Y=8666.264mil|Location2.Y=8673.201mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4592.701mil|Location2.X=4603.069mil|Location1.Y=8666.264mil|Location2.Y=8673.201mil|Absolute=True">Differential Pairs Routing: Track (608.268mil,2669.732mil)(702.181mil,2669.732mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10463.567mil|Location2.X=10472.957mil|Location1.Y=7901.48mil|Location2.Y=7908.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10463.567mil|Location2.X=10472.957mil|Location1.Y=7901.48mil|Location2.Y=7908.417mil|Absolute=True">Differential Pairs Routing: Track (6520.685mil,1910.354mil)(6531.496mil,1899.543mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10459.254mil|Location2.X=10468.581mil|Location1.Y=7916.285mil|Location2.Y=7923.222mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10459.254mil|Location2.X=10468.581mil|Location1.Y=7916.285mil|Location2.Y=7923.222mil|Absolute=True">Differential Pairs Routing: Track (6521.316mil,1919.291mil)(6522.24mil,1920.215mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10462.838mil|Location2.X=10473.206mil|Location1.Y=7916.747mil|Location2.Y=7923.684mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10462.838mil|Location2.X=10473.206mil|Location1.Y=7916.747mil|Location2.Y=7923.684mil|Absolute=True">Differential Pairs Routing: Track (6522.24mil,1920.215mil)(6528.483mil,1920.215mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10467.466mil|Location2.X=10476.792mil|Location1.Y=7918.253mil|Location2.Y=7925.19mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10467.466mil|Location2.X=10476.792mil|Location1.Y=7918.253mil|Location2.Y=7925.19mil|Absolute=True">Differential Pairs Routing: Track (6528.483mil,1920.215mil)(6531.496mil,1923.228mil) on BOT Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596.899mil|Location2.X=4603.862mil|Location1.Y=8635.091mil|Location2.Y=8642.984mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596.899mil|Location2.X=4603.862mil|Location1.Y=8635.091mil|Location2.Y=8642.984mil|Absolute=True">Differential Pairs Routing: Track (659.449mil,2620.079mil)(659.449mil,2657.039mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596.899mil|Location2.X=4603.862mil|Location1.Y=8684.744mil|Location2.Y=8692.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596.899mil|Location2.X=4603.862mil|Location1.Y=8684.744mil|Location2.Y=8692.638mil|Absolute=True">Differential Pairs Routing: Track (659.449mil,2669.732mil)(659.449mil,2706.693mil) on TOP Actual Width = 3.937mil, Target Width = 5mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDZALCITXZQ2S1FA3ZW5HAZIETVIW0QQIXXOIF2CPVFWNR3JBGUXMM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Acute Angle Constraint (Minimum=60.000) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8735.603mil|Location2.X=8755.103mil|Location1.Y=9178.606mil|Location2.Y=9198.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8735.603mil|Location2.X=8755.103mil|Location1.Y=9178.606mil|Location2.Y=9198.106mil|Absolute=True">Acute Angle Constraint: (38.477 &lt; 60.000) Between Track (4792.323mil,3178.15mil)(4808.071mil,3178.15mil) on TOP And Via (4792.323mil,3178.15mil) from TOP to BOT (Angle = 38.477)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12303.303mil|Location2.X=12322.803mil|Location1.Y=9162.415mil|Location2.Y=9181.915mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12303.303mil|Location2.X=12322.803mil|Location1.Y=9162.415mil|Location2.Y=9181.915mil|Absolute=True">Acute Angle Constraint: (3.736 &lt; 60.000) Between Polygon Region (15 hole(s)) TOP And Via (8358.268mil,3165.354mil) from TOP to BOT (Angle = 3.736)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12284.123mil|Location2.X=12303.623mil|Location1.Y=9162.418mil|Location2.Y=9181.918mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12284.123mil|Location2.X=12303.623mil|Location1.Y=9162.418mil|Location2.Y=9181.918mil|Absolute=True">Acute Angle Constraint: (3.749 &lt; 60.000) Between Polygon Region (15 hole(s)) TOP And Via (8358.268mil,3165.354mil) from TOP to BOT (Angle = 3.749)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4398.043mil|Location2.X=4417.543mil|Location1.Y=6660.942mil|Location2.Y=6680.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4398.043mil|Location2.X=4417.543mil|Location1.Y=6660.942mil|Location2.Y=6680.442mil|Absolute=True">Acute Angle Constraint: (56.250 &lt; 60.000) Between Pad R111-1(480.315mil,661.417mil) on TOP And Track (459.646mil,662.401mil)(460.63mil,661.417mil) on TOP (Angle = 56.250)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11169.697mil|Location2.X=11189.197mil|Location1.Y=6796.925mil|Location2.Y=6816.425mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11169.697mil|Location2.X=11189.197mil|Location1.Y=6796.925mil|Location2.Y=6816.425mil|Absolute=True">Acute Angle Constraint: (45.000 &lt; 60.000) Between Polygon Region (0 hole(s)) BOT And Track (6845.472mil,1177.165mil)(7239.173mil,783.465mil) on BOT (Angle = 45.000)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10999.844mil|Location2.X=11019.344mil|Location1.Y=8485.748mil|Location2.Y=8505.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10999.844mil|Location2.X=11019.344mil|Location1.Y=8485.748mil|Location2.Y=8505.248mil|Absolute=True">Acute Angle Constraint: (25.293 &lt; 60.000) Between Pad J109-6(7112.205mil,2488.189mil) on TOP And Via (7055.013mil,2488.189mil) from TOP to BOT (Angle = 25.293)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11000.406mil|Location2.X=11019.906mil|Location1.Y=8479.63mil|Location2.Y=8499.13mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=11000.406mil|Location2.X=11019.906mil|Location1.Y=8479.63mil|Location2.Y=8499.13mil|Absolute=True">Acute Angle Constraint: (35.339 &lt; 60.000) Between Pad J109-6(7112.205mil,2488.189mil) on TOP And Via (7055.013mil,2488.189mil) from TOP to BOT (Angle = 35.339)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10394.258mil|Location2.X=10413.758mil|Location1.Y=7870.561mil|Location2.Y=7890.061mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10394.258mil|Location2.X=10413.758mil|Location1.Y=7870.561mil|Location2.Y=7890.061mil|Absolute=True">Acute Angle Constraint: (45.000 &lt; 60.000) Between Track (5407.48mil,1872.047mil)(6468.504mil,1872.047mil) on BOT And Track (6451.237mil,1889.314mil)(6468.504mil,1872.047mil) on BOT (Angle = 45.000)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4414.789mil|Location2.X=4434.289mil|Location1.Y=8646.556mil|Location2.Y=8666.056mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4414.789mil|Location2.X=4434.289mil|Location1.Y=8646.556mil|Location2.Y=8666.056mil|Absolute=True">Acute Angle Constraint: (23.196 &lt; 60.000) Between Pad L5-1(498.032mil,2647.638mil) on TOP And Via (469.488mil,2651.512mil) from TOP to BOT (Angle = 23.196)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAK1ZOG44SVBOKIYEZV20MOGQSDKTRWMCR5FVUCCGRYZ3LHYR3IB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5026.028mil|Location2.X=5047.302mil|Location1.Y=8915.791mil|Location2.Y=8946.174mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5026.028mil|Location2.X=5047.302mil|Location1.Y=8915.791mil|Location2.Y=8946.174mil|Absolute=True">Net Antennae: Track (1092.52mil,2923.228mil)(3622.687mil,2923.228mil) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5039.807mil|Location2.X=5061.082mil|Location1.Y=8941.382mil|Location2.Y=8971.765mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5039.807mil|Location2.X=5061.082mil|Location1.Y=8941.382mil|Location2.Y=8971.765mil|Absolute=True">Net Antennae: Track (1106.299mil,2948.819mil)(3638.78mil,2948.819mil) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10210.083mil|Location2.X=10235.642mil|Location1.Y=6205.161mil|Location2.Y=6242.612mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10210.083mil|Location2.X=10235.642mil|Location1.Y=6205.161mil|Location2.Y=6242.612mil|Absolute=True">Net Antennae: Track (6278.543mil,191.929mil)(6278.543mil,214.567mil) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9180.949mil|Location2.X=9220.65mil|Location1.Y=7718.35mil|Location2.Y=7779.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9180.949mil|Location2.X=9220.65mil|Location1.Y=7718.35mil|Location2.Y=7779.275mil|Absolute=True">Net Antennae: Via (5255.905mil,1734.252mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9318.744mil|Location2.X=9358.445mil|Location1.Y=8261.658mil|Location2.Y=8322.582mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9318.744mil|Location2.X=9358.445mil|Location1.Y=8261.658mil|Location2.Y=8322.582mil|Absolute=True">Net Antennae: Via (5393.7mil,2277.559mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9436.854mil|Location2.X=9476.556mil|Location1.Y=8261.658mil|Location2.Y=8322.582mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9436.854mil|Location2.X=9476.556mil|Location1.Y=8261.658mil|Location2.Y=8322.582mil|Absolute=True">Net Antennae: Via (5511.811mil,2277.559mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9452.602mil|Location2.X=9492.304mil|Location1.Y=7718.35mil|Location2.Y=7779.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9452.602mil|Location2.X=9492.304mil|Location1.Y=7718.35mil|Location2.Y=7779.275mil|Absolute=True">Net Antennae: Via (5527.559mil,1734.252mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9812.839mil|Location2.X=9848.255mil|Location1.Y=9010.673mil|Location2.Y=9064.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9812.839mil|Location2.X=9848.255mil|Location1.Y=9010.673mil|Location2.Y=9064.378mil|Absolute=True">Net Antennae: Via (5885.827mil,3024.606mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9980.161mil|Location2.X=10015.577mil|Location1.Y=8835.476mil|Location2.Y=8889.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9980.161mil|Location2.X=10015.577mil|Location1.Y=8835.476mil|Location2.Y=8889.181mil|Absolute=True">Net Antennae: Via (6053.15mil,2849.41mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10151.422mil|Location2.X=10186.838mil|Location1.Y=6221.303mil|Location2.Y=6275.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10151.422mil|Location2.X=10186.838mil|Location1.Y=6221.303mil|Location2.Y=6275.008mil|Absolute=True">Net Antennae: Via (6224.41mil,235.236mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10936.854mil|Location2.X=10972.27mil|Location1.Y=7722.287mil|Location2.Y=7775.992mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\USBC DIOT_temperature_logger.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10936.854mil|Location2.X=10972.27mil|Location1.Y=7722.287mil|Location2.Y=7775.992mil|Absolute=True">Net Antennae: Via (7009.842mil,1736.22mil) from TOP to BOT </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

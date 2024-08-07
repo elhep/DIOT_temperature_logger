@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\pcb\DIOT_temperature_logger.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=diot_temperature_logger-roundholes.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=diot_temperature_logger-slotholes.txt|DrillLayers=gtl,g1,g2,gbl
