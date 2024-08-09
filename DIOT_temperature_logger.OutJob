@@ -21,7 +21,7 @@ TargetOutputMedium=Folder Structure
 VariantName=Default
 VariantScope=1
 CurrentConfigurationName=
-TargetPrinter=HP Universal Printing PCL 6
+TargetPrinter=\\jowisz\Berlin-AIT-Kyocera
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputMedium1=Print Job
 OutputMedium1_Type=Printer
@@ -146,10 +146,10 @@ OutputName4=Generates pick and place files
 OutputCategory4=Assembly
 OutputDocumentPath4=
 OutputVariantName4=
-OutputEnabled4=1
+OutputEnabled4=0
 OutputEnabled4_OutputMedium1=0
 OutputEnabled4_OutputMedium2=0
-OutputEnabled4_OutputMedium3=3
+OutputEnabled4_OutputMedium3=0
 OutputEnabled4_OutputMedium4=0
 OutputDefault4=0
 Configuration4_Name1=OutputConfigurationParameter1
@@ -159,10 +159,10 @@ OutputName5=Gerber Files
 OutputCategory5=Fabrication
 OutputDocumentPath5=
 OutputVariantName5=
-OutputEnabled5=1
+OutputEnabled5=0
 OutputEnabled5_OutputMedium1=0
 OutputEnabled5_OutputMedium2=0
-OutputEnabled5_OutputMedium3=2
+OutputEnabled5_OutputMedium3=0
 OutputEnabled5_OutputMedium4=0
 OutputDefault5=0
 Configuration5_Name1=OutputConfigurationParameter1
@@ -172,10 +172,10 @@ OutputName6=NC Drill Files
 OutputCategory6=Fabrication
 OutputDocumentPath6=
 OutputVariantName6=
-OutputEnabled6=1
+OutputEnabled6=0
 OutputEnabled6_OutputMedium1=0
 OutputEnabled6_OutputMedium2=0
-OutputEnabled6_OutputMedium3=1
+OutputEnabled6_OutputMedium3=0
 OutputEnabled6_OutputMedium4=0
 OutputDefault6=0
 Configuration6_Name1=OutputConfigurationParameter1
@@ -188,33 +188,33 @@ OutputVariantName7=
 OutputEnabled7=1
 OutputEnabled7_OutputMedium1=0
 OutputEnabled7_OutputMedium2=0
-OutputEnabled7_OutputMedium3=5
+OutputEnabled7_OutputMedium3=1
 OutputEnabled7_OutputMedium4=0
 OutputDefault7=0
 PageOptions7=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 Configuration7_Name1=ColumnNameFormat
 Configuration7_Item1=CaptionAsName
 Configuration7_Name2=General
-Configuration7_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1634|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration7_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1634|FormHeight=969|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
 Configuration7_Name3=GroupOrder
 Configuration7_Item3=Comment=True|Footprint=True
 Configuration7_Name4=OutputConfigurationParameter1
 Configuration7_Item4=??
 Configuration7_Name5=SortOrder
-Configuration7_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration7_Item5=Designator=Up|Footprint=Up
 Configuration7_Name6=VisibleOrder
-Configuration7_Item6=Comment=100|Description=100|Designator=100|Footprint=100|Manufacturer=100|Manufacturer Part Number=100|Part Description=100|Part Number=100|Quantity=100
+Configuration7_Item6=Description=100|Designator=100|Footprint=100|Manufacturer=100|Manufacturer Part Number=281|Part Number=253|Quantity=100
 Configuration7_Name7=VisibleOrder_Flat
-Configuration7_Item7=Comment=100|Description=100|Designator=100|Footprint=100|Manufacturer=100|Manufacturer Part Number=100|Part Description=100|Part Number=100|Quantity=100
+Configuration7_Item7=Description=100|Designator=100|Footprint=100|Manufacturer=100|Manufacturer Part Number=281|Part Number=253|Quantity=100
 OutputType8=Board Stack Report
 OutputName8=Report Board Stack
 OutputCategory8=Fabrication
 OutputDocumentPath8=
 OutputVariantName8=
-OutputEnabled8=1
+OutputEnabled8=0
 OutputEnabled8_OutputMedium1=0
 OutputEnabled8_OutputMedium2=5
-OutputEnabled8_OutputMedium3=4
+OutputEnabled8_OutputMedium3=0
 OutputEnabled8_OutputMedium4=0
 OutputDefault8=0
 PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
@@ -277,17 +277,17 @@ ShowComponentParameters2=1
 GlobalBookmarks2=0
 PDFACompliance2=Disabled
 PDFVersion2=Default
-OutputFilePath3=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\Project Outputs for Thermostat 8CH\
+OutputFilePath3=C:\Users\lpajak\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\Outputs\
 ReleaseManaged3=0
-OutputBasePath3=Project Outputs for Thermostat 8CH\
+OutputBasePath3=Outputs\
 OutputPathMedia3=
 OutputPathMediaValue3=
 OutputPathOutputer3=[Output Type]
 OutputPathOutputerPrefix3=
 OutputPathOutputerValue3=
 OutputFileName3=
-OutputFileNameMulti3=
-UseOutputNameForMulti3=1
+OutputFileNameMulti3==ProjectName+'_'+CurrentDate+' '+CurrentTime
+UseOutputNameForMulti3=0
 OutputFileNameSpecial3=
 OpenOutput3=0
 OutputFilePath4=
@@ -331,7 +331,7 @@ WmvQuality4=80
 [GeneratedFilesSettings]
 RelativeOutputPath2=D:\Dropbox\DESIGNS\Sinara_ALTIUM\EEMs\Thermostat_8CH\Project Outputs for Thermostat 8CH\Thermostat(Panel).PDF
 OpenOutputs2=1
-RelativeOutputPath3=C:\Users\spider\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\Project Outputs for Thermostat 8CH\
+RelativeOutputPath3=C:\Users\lpajak\OneDrive - Creotech Instruments S.A\PT1000\DIOT_temperature_logger\Outputs\
 OpenOutputs3=0
 AddToProject3=0
 TimestampFolder3=0

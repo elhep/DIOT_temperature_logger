@@ -1,10 +1,10 @@
 ﻿[Design]
 Version=1.0
 HierarchyMode=0
-ChannelRoomNamingStyle=0
+ChannelRoomNamingStyle=1
 ReleasesFolder=
-ChannelDesignatorFormatString=$Component_$ChannelIndex
-ChannelRoomLevelSeperator=
+ChannelDesignatorFormatString=$Component$ChannelAlpha
+ChannelRoomLevelSeperator=_
 OpenOutputs=1
 ArchiveProject=0
 TimestampOutput=0
@@ -136,6 +136,23 @@ GenerateClassCluster=0
 DocumentUniqueId=GOAMBQYF
 
 [Document6]
+DocumentPath=sch\MCU_STM32F4.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document7]
 DocumentPath=sch\RMII_Ethernet.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -152,7 +169,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YGJQMTUX
 
-[Document7]
+[Document8]
 DocumentPath=sch\RTD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -169,7 +186,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LEPTJGKC
 
-[Document8]
+[Document9]
 DocumentPath=sch\Thermostat_16CH.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -186,7 +203,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=THIRGZQG
 
-[Document9]
+[Document10]
 DocumentPath=sch\USB.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -203,7 +220,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TMJUETGM
 
-[Document10]
+[Document11]
 DocumentPath=sch\Supply.schdoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -220,7 +237,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WYDWVJPF
 
-[Document11]
+[Document12]
 DocumentPath=sch\EEM_DIOT_connector.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -237,25 +254,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
-DocumentPath=sch\RMII_Ethernet.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
 [Document13]
-DocumentPath=sch\MCU_STM32F4.Harness
+DocumentPath=sch\RMII_Ethernet.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -288,23 +288,73 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document15]
+DocumentPath=pcb\OLD_DIOT_temperature_logger.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document16]
+DocumentPath=pcb\Copy of DIOT_temperature_logger.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=JPGMEFUR
+
 [ProjectVariant1]
 UniqueId=7DDDB149-02B6-4C78-AE23-2C0F37058BB8
 Description=Default
 AllowFabrication=0
 ParameterCount=0
-VariationCount=0
+VariationCount=12
+Variation1=Designator=W1|UniqueId=\UXUUOLPO\RKAQXDWE|Kind=1|AlternatePart=
+Variation2=Designator=W2|UniqueId=\UXUUOLPO\QNYQCXQV|Kind=1|AlternatePart=
+Variation3=Designator=R52|UniqueId=\UXUUOLPO\UXZIHSWB|Kind=1|AlternatePart=
+Variation4=Designator=R51|UniqueId=\UXUUOLPO\XDKSTWCE|Kind=1|AlternatePart=
+Variation5=Designator=R53|UniqueId=\UXUUOLPO\LDUCONOG|Kind=1|AlternatePart=
+Variation6=Designator=J107|UniqueId=\GXAMSLTU\FLOIEEBE|Kind=1|AlternatePart=
+Variation7=Designator=C75|UniqueId=\GXAMSLTU\YZUXXWYG|Kind=1|AlternatePart=
+Variation8=Designator=IC19|UniqueId=\GXAMSLTU\PTCXSLGZ|Kind=1|AlternatePart=
+Variation9=Designator=C79|UniqueId=\GXAMSLTU\KAMFGEPI|Kind=1|AlternatePart=
+Variation10=Designator=C80|UniqueId=\GXAMSLTU\FPQGBTME|Kind=1|AlternatePart=
+Variation11=Designator=C78|UniqueId=\GXAMSLTU\KHYVFQKS|Kind=1|AlternatePart=
+Variation12=Designator=C74|UniqueId=\GXAMSLTU\XCQJWSUL|Kind=1|AlternatePart=
 ParamVariationCount=0
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for Zotino\Design Rule Check - DIOT_temperature_logger.html
+DocumentPath=Project Outputs for Zotino\Design Rule Check - Copy of DIOT_temperature_logger.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for Zotino\Design Rule Check - USBC DIOT_temperature_logger.html
+DocumentPath=Project Outputs for Zotino\Design Rule Check - DIOT_temperature_logger.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
+DocumentPath=Project Outputs for Zotino\Design Rule Check - USBC DIOT_temperature_logger.html
+DItemRevisionGUID=
+
+[GeneratedDocument4]
 DocumentPath=Project Outputs for Zotino\Move Component(s) Origin To Grid - DIOT_temperature_logger.html
 DItemRevisionGUID=
 
@@ -596,11 +646,6 @@ OutputName3=Test Point Report
 OutputDocumentPath3=
 OutputVariantName3=[No Variations]
 OutputDefault3=0
-OutputType4=Wire Bonding Table
-OutputName4=Wire Bonding Table Report
-OutputDocumentPath4=
-OutputVariantName4=[No Variations]
-OutputDefault4=0
 
 [OutputGroup5]
 Name=Fabrication Outputs
@@ -687,6 +732,18 @@ OutputDocumentPath1=
 OutputVariantName1=[No Variations]
 OutputDefault1=0
 PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4
+Configuration1_Name1=ColumnNameFormat
+Configuration1_Item1=CaptionAsName
+Configuration1_Name2=ForceUpdateSettings
+Configuration1_Item2=False
+Configuration1_Name3=General
+Configuration1_Item3=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1200|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration1_Name4=GroupOrder
+Configuration1_Item4=Comment=True|Footprint=True
+Configuration1_Name5=SortOrder
+Configuration1_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration1_Name6=VisibleOrder
+Configuration1_Item6=Comment=120|Description=120|Designator=120|Footprint=120|LibRef=120|Quantity=120
 OutputType2=ComponentCrossReference
 OutputName2=Component Cross Reference Report
 OutputDocumentPath2=
@@ -1003,18 +1060,6 @@ Type135=1
 Type136=1
 Type137=1
 Type138=1
-Type139=1
-Type140=1
-Type141=1
-Type142=1
-Type143=1
-Type144=1
-Type145=1
-Type146=1
-Type147=1
-Type148=1
-Type149=1
-Type150=1
 
 [Difference Levels]
 Type1=1
@@ -1091,13 +1136,6 @@ Type71=1
 Type72=1
 Type73=1
 Type74=1
-Type75=1
-Type76=1
-Type77=1
-Type78=1
-Type79=1
-Type80=1
-Type81=1
 
 [Electrical Rules Check]
 Type1=1
@@ -1253,7 +1291,6 @@ Type150=2
 Type151=2
 Type152=1
 Type153=1
-Type154=0
 
 [ERC Connection Matrix]
 L1=NNNNNNNNNNNWNNNWW
@@ -1320,6 +1357,9 @@ PartTypes=0
 
 [NetInfos]
 Net1=NetName=AVDDT_PHY|NetColor=$006E6EFF
+Net2=NetName=U_meas_P12V0|NetColor=$00FF6E6E
+Net3=NetName=U_meas_P3V3|NetColor=$006E6EFF
+Net4=NetName=U_meas_P3V9|NetColor=$006EFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0

@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 12:06:38 On 09.08.2024
+
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [Default] of Project [DIOT_temperature_logger.PrjPCB]
+   Generated File[//plcreotech-my.sharepoint.com/personal/lpajak_creotech_pl/Documents/PT1000/DIOT_temperature_logger/Outputs/BOM/DIOT_temperature_logger_2024-08-09 12-06.xlsx]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 12:06:44 On 09.08.2024
