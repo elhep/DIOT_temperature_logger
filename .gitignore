@@ -11,3 +11,6 @@
 *.plt
 *.op.raw
 *.PrjPCBStructure
+
+
+/Project Outputs*/
