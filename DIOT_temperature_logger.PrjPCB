@@ -44,7 +44,6 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
-CurrentVariant=Default
 
 [Preferences]
 PrefsVaultGUID=
@@ -221,23 +220,6 @@ GenerateClassCluster=0
 DocumentUniqueId=WYDWVJPF
 
 [Document11]
-DocumentPath=sch\EEM_DIOT_connector.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document12]
 DocumentPath=sch\RMII_Ethernet.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -254,7 +236,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document12]
 DocumentPath=DIOT_temperature_logger.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -271,7 +253,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document13]
 DocumentPath=pcb\DIOT_temperature_logger.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -288,41 +270,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JPGMEFUR
 
-[Document15]
-DocumentPath=pcb\OLD_DIOT_temperature_logger.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MTFSLNAE
-
-[Document16]
-DocumentPath=pcb\adapter_temperature_logger.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=OUYLHYAY
-
-[Document17]
+[Document14]
 DocumentPath=..\..\..\CERNLib\Capacitors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -339,7 +287,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document18]
+[Document15]
 DocumentPath=..\..\..\CERNLib\Connectors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -356,7 +304,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document16]
 DocumentPath=..\..\..\CERNLib\Eletro-mechanical.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -373,7 +321,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document17]
 DocumentPath=..\..\..\CERNLib\ICs And Semiconductors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -390,7 +338,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document18]
 DocumentPath=..\..\..\CERNLib\Inductors & Transformers.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -407,7 +355,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document19]
 DocumentPath=..\..\..\CERNLib\Resistors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -424,7 +372,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document23]
+[Document20]
 DocumentPath=..\..\CERNLib\Capacitors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -441,7 +389,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
+[Document21]
 DocumentPath=..\..\CERNLib\Connectors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -458,7 +406,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document25]
+[Document22]
 DocumentPath=..\..\CERNLib\Eletro-mechanical.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -475,7 +423,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document26]
+[Document23]
 DocumentPath=..\..\CERNLib\ICs And Semiconductors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -492,7 +440,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document27]
+[Document24]
 DocumentPath=..\..\CERNLib\Resistors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -509,7 +457,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document28]
+[Document25]
 DocumentPath=..\..\CERNLib\Inductors & Transformers.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -525,26 +473,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
-
-[ProjectVariant1]
-UniqueId=7DDDB149-02B6-4C78-AE23-2C0F37058BB8
-Description=Default
-AllowFabrication=0
-ParameterCount=0
-VariationCount=12
-Variation1=Designator=W1|UniqueId=\UXUUOLPO\RKAQXDWE|Kind=1|AlternatePart=
-Variation2=Designator=W2|UniqueId=\UXUUOLPO\QNYQCXQV|Kind=1|AlternatePart=
-Variation3=Designator=R52|UniqueId=\UXUUOLPO\UXZIHSWB|Kind=1|AlternatePart=
-Variation4=Designator=R51|UniqueId=\UXUUOLPO\XDKSTWCE|Kind=1|AlternatePart=
-Variation5=Designator=R53|UniqueId=\UXUUOLPO\LDUCONOG|Kind=1|AlternatePart=
-Variation6=Designator=J107|UniqueId=\GXAMSLTU\FLOIEEBE|Kind=1|AlternatePart=
-Variation7=Designator=C75|UniqueId=\GXAMSLTU\YZUXXWYG|Kind=1|AlternatePart=
-Variation8=Designator=IC19|UniqueId=\GXAMSLTU\PTCXSLGZ|Kind=1|AlternatePart=
-Variation9=Designator=C79|UniqueId=\GXAMSLTU\KAMFGEPI|Kind=1|AlternatePart=
-Variation10=Designator=C80|UniqueId=\GXAMSLTU\FPQGBTME|Kind=1|AlternatePart=
-Variation11=Designator=C78|UniqueId=\GXAMSLTU\KHYVFQKS|Kind=1|AlternatePart=
-Variation12=Designator=C74|UniqueId=\GXAMSLTU\XCQJWSUL|Kind=1|AlternatePart=
-ParamVariationCount=0
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for Zotino\Design Rule Check - Copy of DIOT_temperature_logger.html
@@ -1590,9 +1518,13 @@ PartTypes=0
 Net1=NetName=AFE_SCL|NetColor=$006E6EFF
 Net2=NetName=AFE_SDA|NetColor=$006E6EFF
 Net3=NetName=AVDDT_PHY|NetColor=$006E6EFF
-Net4=NetName=U_meas_P12V0|NetColor=$00FF6E6E
-Net5=NetName=U_meas_P3V3|NetColor=$006E6EFF
-Net6=NetName=U_meas_P3V9|NetColor=$006EFF6E
+Net4=NetName=LVDS2_N|NetColor=$00FFFF6E
+Net5=NetName=LVDS2_P|NetColor=$00FFFF6E
+Net6=NetName=PHY_ETH.RMII_TX_EN|NetColor=$006E6EFF
+Net7=NetName=RMII_TX_EN|NetColor=$006E6EFF
+Net8=NetName=U_meas_P12V0|NetColor=$00FF6E6E
+Net9=NetName=U_meas_P3V3|NetColor=$006E6EFF
+Net10=NetName=U_meas_P3V9|NetColor=$006EFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
