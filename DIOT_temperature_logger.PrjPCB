@@ -51,23 +51,6 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=pcb\DIOT_temperature_logger.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MTFSLNAE
-
-[Document2]
 DocumentPath=FrontPanel\FrontPanel.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -84,7 +67,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FKNCOMEC
 
-[Document3]
+[Document2]
 DocumentPath=sch\Adapters.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -101,7 +84,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YSKGSQLO
 
-[Document4]
+[Document3]
 DocumentPath=sch\EEM_DIOT_connector.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -118,7 +101,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UUWGMCQE
 
-[Document5]
+[Document4]
 DocumentPath=sch\MCU_STM32F4.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -135,7 +118,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GOAMBQYF
 
-[Document6]
+[Document5]
 DocumentPath=sch\MCU_STM32F4.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -152,7 +135,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document7]
+[Document6]
 DocumentPath=sch\RMII_Ethernet.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -169,7 +152,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YGJQMTUX
 
-[Document8]
+[Document7]
 DocumentPath=sch\RTD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -186,7 +169,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LEPTJGKC
 
-[Document9]
+[Document8]
 DocumentPath=sch\Thermostat_16CH.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -203,7 +186,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=THIRGZQG
 
-[Document10]
+[Document9]
 DocumentPath=sch\USB.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -220,7 +203,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TMJUETGM
 
-[Document11]
+[Document10]
 DocumentPath=sch\Supply.schdoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -237,7 +220,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WYDWVJPF
 
-[Document12]
+[Document11]
 DocumentPath=sch\EEM_DIOT_connector.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -254,7 +237,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document12]
 DocumentPath=sch\RMII_Ethernet.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -271,7 +254,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document13]
 DocumentPath=DIOT_temperature_logger.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -288,6 +271,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document14]
+DocumentPath=pcb\DIOT_temperature_logger.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=JPGMEFUR
+
 [Document15]
 DocumentPath=pcb\OLD_DIOT_temperature_logger.PcbDoc
 AnnotationEnabled=1
@@ -303,10 +303,10 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=MTFSLNAE
 
 [Document16]
-DocumentPath=pcb\Copy of DIOT_temperature_logger.PcbDoc
+DocumentPath=pcb\adapter_temperature_logger.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -320,7 +320,211 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=JPGMEFUR
+DocumentUniqueId=OUYLHYAY
+
+[Document17]
+DocumentPath=..\..\..\CERNLib\Capacitors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document18]
+DocumentPath=..\..\..\CERNLib\Connectors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document19]
+DocumentPath=..\..\..\CERNLib\Eletro-mechanical.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document20]
+DocumentPath=..\..\..\CERNLib\ICs And Semiconductors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document21]
+DocumentPath=..\..\..\CERNLib\Inductors & Transformers.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document22]
+DocumentPath=..\..\..\CERNLib\Resistors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document23]
+DocumentPath=..\..\CERNLib\Capacitors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document24]
+DocumentPath=..\..\CERNLib\Connectors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document25]
+DocumentPath=..\..\CERNLib\Eletro-mechanical.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document26]
+DocumentPath=..\..\CERNLib\ICs And Semiconductors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document27]
+DocumentPath=..\..\CERNLib\Resistors.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document28]
+DocumentPath=..\..\CERNLib\Inductors & Transformers.DbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [ProjectVariant1]
 UniqueId=7DDDB149-02B6-4C78-AE23-2C0F37058BB8
@@ -646,6 +850,11 @@ OutputName3=Test Point Report
 OutputDocumentPath3=
 OutputVariantName3=[No Variations]
 OutputDefault3=0
+OutputType4=Wire Bonding Table
+OutputName4=Wire Bonding Table Report
+OutputDocumentPath4=
+OutputVariantName4=[No Variations]
+OutputDefault4=0
 
 [OutputGroup5]
 Name=Fabrication Outputs
@@ -737,13 +946,15 @@ Configuration1_Item1=CaptionAsName
 Configuration1_Name2=ForceUpdateSettings
 Configuration1_Item2=False
 Configuration1_Name3=General
-Configuration1_Item3=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1200|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration1_Item3=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1394|FormHeight=1177|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
 Configuration1_Name4=GroupOrder
 Configuration1_Item4=Comment=True|Footprint=True
 Configuration1_Name5=SortOrder
-Configuration1_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration1_Item5=Designator=Up
 Configuration1_Name6=VisibleOrder
-Configuration1_Item6=Comment=120|Description=120|Designator=120|Footprint=120|LibRef=120|Quantity=120
+Configuration1_Item6=Comment=120|Description=120|Designator=120|Footprint=120|LibRef=231|Quantity=120
+Configuration1_Name7=VisibleOrder_Flat
+Configuration1_Item7=Comment=120|Description=120|Designator=120|Footprint=120|LibRef=231|Quantity=120
 OutputType2=ComponentCrossReference
 OutputName2=Component Cross Reference Report
 OutputDocumentPath2=
@@ -1060,6 +1271,18 @@ Type135=1
 Type136=1
 Type137=1
 Type138=1
+Type139=1
+Type140=1
+Type141=1
+Type142=1
+Type143=1
+Type144=1
+Type145=1
+Type146=1
+Type147=1
+Type148=1
+Type149=1
+Type150=1
 
 [Difference Levels]
 Type1=1
@@ -1124,7 +1347,7 @@ Type59=1
 Type60=1
 Type61=1
 Type62=1
-Type63=1
+Type63=0
 Type64=1
 Type65=1
 Type66=1
@@ -1136,6 +1359,13 @@ Type71=1
 Type72=1
 Type73=1
 Type74=1
+Type75=1
+Type76=1
+Type77=1
+Type78=1
+Type79=1
+Type80=1
+Type81=1
 
 [Electrical Rules Check]
 Type1=1
@@ -1291,6 +1521,7 @@ Type150=2
 Type151=2
 Type152=1
 Type153=1
+Type154=0
 
 [ERC Connection Matrix]
 L1=NNNNNNNNNNNWNNNWW
@@ -1356,10 +1587,12 @@ UpdateToLatestRevision=1
 PartTypes=0
 
 [NetInfos]
-Net1=NetName=AVDDT_PHY|NetColor=$006E6EFF
-Net2=NetName=U_meas_P12V0|NetColor=$00FF6E6E
-Net3=NetName=U_meas_P3V3|NetColor=$006E6EFF
-Net4=NetName=U_meas_P3V9|NetColor=$006EFF6E
+Net1=NetName=AFE_SCL|NetColor=$006E6EFF
+Net2=NetName=AFE_SDA|NetColor=$006E6EFF
+Net3=NetName=AVDDT_PHY|NetColor=$006E6EFF
+Net4=NetName=U_meas_P12V0|NetColor=$00FF6E6E
+Net5=NetName=U_meas_P3V3|NetColor=$006E6EFF
+Net6=NetName=U_meas_P3V9|NetColor=$006EFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
