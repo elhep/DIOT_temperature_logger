@@ -480,7 +480,7 @@ UniqueId=d1681fed-6113-4ae7-90b0-c79930eb1a49
 Description=Standard MCU
 AllowFabrication=0
 ParameterCount=0
-VariationCount=9
+VariationCount=10
 Variation1=Designator=J91|UniqueId=\YTKFNQZS\FLOIEEBE|Kind=1|AlternatePart==Family
 ParamVariation1=ParameterName=Comment|VariantValue==Family
 ParamDesignator1=J91
@@ -508,6 +508,7 @@ ParamDesignator8=R135
 Variation9=Designator=R136|UniqueId=\ZDMBHYLB|Kind=1|AlternatePart==Value
 ParamVariation9=ParameterName=Comment|VariantValue==Value
 ParamDesignator9=R136
+Variation10=Designator=W1|UniqueId=\UXUUOLPO\RKAQXDWE|Kind=1|AlternatePart=
 ParamVariationCount=9
 
 [ProjectVariant2]
@@ -1734,18 +1735,6 @@ SelectedOnly=0
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
-
-[NetInfos]
-Net1=NetName=AFE_SCL|NetColor=$006E6EFF
-Net2=NetName=AFE_SDA|NetColor=$006E6EFF
-Net3=NetName=AVDDT_PHY|NetColor=$006E6EFF
-Net4=NetName=LVDS2_N|NetColor=$00FFFF6E
-Net5=NetName=LVDS2_P|NetColor=$00FFFF6E
-Net6=NetName=PHY_ETH.RMII_TX_EN|NetColor=$006E6EFF
-Net7=NetName=RMII_TX_EN|NetColor=$006E6EFF
-Net8=NetName=U_meas_P12V0|NetColor=$00FF6E6E
-Net9=NetName=U_meas_P3V3|NetColor=$006E6EFF
-Net10=NetName=U_meas_P3V9|NetColor=$006EFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
