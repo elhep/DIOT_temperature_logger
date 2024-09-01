@@ -255,7 +255,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document13]
-DocumentPath=pcb\DIOT_temperature_logger.PcbDoc
+DocumentPath=pcb\test rtd DIOT_temperature_logger.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -705,10 +705,14 @@ DocumentPath=Project Outputs for Zotino\Design Rule Check - DIOT_temperature_log
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for Zotino\Design Rule Check - USBC DIOT_temperature_logger.html
+DocumentPath=Project Outputs for Zotino\Design Rule Check - test rtd DIOT_temperature_logger.html
 DItemRevisionGUID=
 
 [GeneratedDocument4]
+DocumentPath=Project Outputs for Zotino\Design Rule Check - USBC DIOT_temperature_logger.html
+DItemRevisionGUID=
+
+[GeneratedDocument5]
 DocumentPath=Project Outputs for Zotino\Move Component(s) Origin To Grid - DIOT_temperature_logger.html
 DItemRevisionGUID=
 
@@ -878,12 +882,22 @@ OutputName20=EESof Netlist
 OutputDocumentPath20=
 OutputVariantName20=
 OutputDefault20=0
+OutputType21=XSpiceNetlist
+OutputName21=Mixed Sim Netlist
+OutputDocumentPath21=
+OutputVariantName21=
+OutputDefault21=0
 
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
 TargetPrinter=hp deskjet 920c
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
+OutputType1=AdvSimNetlist
+OutputName1=Mixed Sim
+OutputDocumentPath1=
+OutputVariantName1=
+OutputDefault1=0
 
 [OutputGroup3]
 Name=Documentation Outputs
