@@ -1,0 +1,38 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: DIOT_temperature_logger.PcbDoc   12.09.2024  00:50:24
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : TOP to BOT
+ASCII RoundHoles File : DIOT_temperature_logger_2024-09-12 00-50-RoundHoles.TXT
+ASCII SlotHoles File : DIOT_temperature_logger_2024-09-12 00-50-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.2mm (8mil)                                              Round             1011      PTH        3825.67mm (150.62inch)
+T2      0.3mm (12mil)                                             Round             84        PTH        412.35mm (16.23inch)
+T3      0.4mm (16mil)                                             Round             14        PTH        11.70mm (0.46inch)
+T4      0.5mm (20mil)           +/-0.05mm (2mil)                  Round             72        PTH        102.41mm (4.03inch)
+T5      0.6mm (24mil)                                             Slot              4         PTH        24.38mm (0.96inch)
+T6      0.65mm (26mil)                                            Round             204       PTH        1095.33mm (43.12inch)
+T7      0.8mm (31mil)                                             Round             16        PTH        43.60mm (1.72inch)
+T8      0.9mm (35mil)                                             Round             10        PTH        23.16mm (0.91inch)
+T9      0.965mm (38mil)                                           Round             2         PTH        2.54mm (0.10inch)
+T10     1mm (39mil)                                               Round             44        PTH        273.94mm (10.79inch)
+T11     1.02mm (40mil)                                            Round             4         PTH        17.66mm (0.70inch)
+T12     1.1mm (43mil)                                             Round             10        PTH        50.81mm (2.00inch)
+T13     1.2mm (47mil)                                             Round             6         PTH        837.20mm (32.96inch)
+T14     1.4mm (55mil)                                             Round             64        PTH        293.59mm (11.56inch)
+T15     1.5mm (59mil)                                             Round             15        PTH        176.00mm (6.93inch)
+T16     1.6mm (63mil)                                             Round             2         PTH        15.49mm (0.61inch)
+T17     1.7mm (67mil)                                             Round             3         PTH        13.10mm (0.52inch)
+T18     1.8mm (71mil)                                             Round             4         PTH        13.90mm (0.55inch)
+T19     2.7mm (106mil)                                            Round             2         PTH        88.90mm (3.50inch)
+T20     3.2mm (126mil)                                            Round             6         PTH        256.11mm (10.08inch)
+T21     0.2mm (8mil)                                              Round             903       NPTH       786.23mm (30.95inch)
+T22     1.75mm (69mil)                                            Round             6         NPTH       860.21mm (33.87inch)
+T23     3mm (118mil)                                              Round             1         NPTH       0.00mm (0.00inch)
+T24     3.25mm (128mil)                                           Round             2         NPTH       11.43mm (0.45inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              2489
+
+Total Processing Time (hh:mm:ss) : 00:00:00
